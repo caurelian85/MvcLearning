@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Admin area";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+            <h1>All users</h1>
+        </hgroup>
+    </div>
+</section>
+}
+
+<link href="@Url.Content("~/Content/themes/base/jquery-ui-1.8.17.custom.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/Views/usersManager-index.js")" type="text/javascript"></script>
+
+<div id="dialog-confirm" title="Delete User" style="display:none;">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 10px 30px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+</div>
+
+<div id="error-place">
+<img style="display:none;" src="@Url.Content("~/Content/themes/base/images/ajax-loader.gif")"/>
+<p style="display:none;"></p>
+<p style="display:none;">Completeaza campurile libere!</p>
+</div>
+
+<div id="search-place">
+    <input style="float:left; width: 150px;" type="text" name="search_box"/>
+    <a id="search" href="#">cauta</a>
+</div>
+
+<div id="list-place" style="display:block;">
+    <img id="preloader" src="@Url.Content("~/Content/themes/base/images/ajax-loader.gif")"/> 
+</div>
+
+<div id="dialog-message" style="display:none;">
+    <p id="notok"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 10px 30px 0;"></span>User has records! You can Enable/Disable only...</p>
+</div>
+
+
+@if (false)
+{
+        <script src="../../../../Scripts/jquery-1.7.1-vsdoc.js" type="text/javascript"></script>
+}
+
+<script type="text/javascript">
+    window.AjaxUrls = {};
+    AjaxUrls.Url_GetListAsync = '@Url.Action("GetListAsync")';
+    AjaxUrls.Url_DeleteAsync = '@Url.Action("DeleteAsync")';
+    AjaxUrls.Url_SaveClient = '@Url.Action("EnableDisableAsync")';
+</script>
+

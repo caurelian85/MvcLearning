@@ -1,0 +1,32 @@
+﻿@model MvcLearningApp.Models.ClientIndexView
+@{
+    ViewBag.Title = "Clients List";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clients List</title>
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui-1.8.17.custom.css")" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div>
+        @if (false)
+        {
+                <script src="../../Scripts/jquery-1.7.1-vsdoc.js" type="text/javascript"></script>
+        }
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+        <div>
+            <p>@Model.ErrorMessage</p>
+        </div>
+        }
+        <div>
+            @Html.Partial("_ClientsListUnmanaged",Model.List)
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿@model MvcLearningApp.Models.ClientView
+
+<tr>
+    <td>@Html.DisplayFor(modelItem=>Model.Name)</td>
+    <td>@Html.DisplayFor(modelItem => Model.Date)</td>
+    <td>@Html.DisplayFor(modelItem => Model.Email)</td>
+    <td>@Html.DisplayFor(modelItem => Model.Phone)</td>
+    <td>@Html.DisplayFor(modelItem => Model.Avatar)</td>
+    <td data-id="@Model.Id"> 
+        @Html.ActionLink("Edit", "Edit", "Clients", new RouteValueDictionary() { { "id", Model.Id } } , new Dictionary<string, object>() { { "class", "btn-edit" }, { "data-mode","on" } }) |
+        @Html.ActionLink("Delete", "Delete", new Dictionary<string, object>() { { "id", Model.Id }, {"class", "btn-del"} })
+    </td>    
+</tr> 

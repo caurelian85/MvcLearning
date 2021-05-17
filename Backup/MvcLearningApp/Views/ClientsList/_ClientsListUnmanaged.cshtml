@@ -1,0 +1,29 @@
+﻿@model List<MvcLearningApp.Models.ClientView>
+
+     <div id="accordeon_display">
+     @try
+     {
+         foreach (var item in Model)
+         {
+             <h3><a href="#">Nume client: @item.Name </a></h3>
+         <div>
+            <h3>Email: @Html.DisplayFor(modelItem=>item.Email)</h3>
+            <h3>Data inscrierii: @Html.DisplayFor(modelItem=>item.Date)</h3>
+         </div>
+         }
+     }
+     catch (Exception ex)
+     {
+         var mesaj = ex.Message;
+     }
+     </div>    
+
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $("#accordeon_display").accordion({
+                    collapsible: true
+                });
+            });
+        });
+    </script>  

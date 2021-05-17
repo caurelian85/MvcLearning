@@ -1,0 +1,44 @@
+﻿@model MvcLearningApp.Models.GridViewModel<MvcLearningApp.Models.ClientView>
+@{
+    ViewBag.Title = "Clients";
+}
+
+<table id="clientsTable">
+<thead >
+    <tr bgcolor="#99ccff">
+        <td> Name </td>
+        <td> Date (mm/dd/yyyy) </td>
+        <td> Email </td>
+        <td> Phone </td>
+        <td> Picture </td>
+        <td> Options </td>
+    </tr>
+</thead>
+    
+<tbody>
+    @foreach (var item in Model.Items)
+    {
+        <tr class="table_row">
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Date)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+            <td>
+                @*adauga partialul @Html.Partial("_AddPictureToDefault",item.Id);*@
+                @Html.ActionLink("AddPicture", "Index", "AddPicture", new { @id = item.Id }, new { @class = "addButton" })
+                @*pentru a incarca imagine pe un link(text) te duci in CSS-ul site-ului (paginii) si creezi o noua clasa cu numele clasei/id-ul tagului in care adaugi sursa pozei*@
+            </td>
+            <td data-id="@item.Id">
+                @Html.ActionLink("Edit", "Edit", "Clients", new RouteValueDictionary {{ "id",  item.Id }}, new Dictionary<string, object>() { { "class", "btn-edit" }, { "data-mode", "on" } }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn-del" })
+            </td>
+        </tr>       
+    }
+</tbody>
+</table>
+
+<div>
+@Html.Partial("_Pager", Model.Pager)
+</div>
+
+@**@

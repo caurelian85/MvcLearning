@@ -1,0 +1,13 @@
+﻿@model MvcLearningApp.Entities.Client
+
+@foreach (var item in Model.Avatar)
+{
+    if (item != null)
+    {
+        <img width = 40px height = 22px src = "@Url.Action("GetImage", "AddPicture", new { @id = Model.Id })" />
+    }
+    else
+    {
+        @Html.ActionLink("AddPicture", "Index", "AddPicture", new { @id =Model.Id }, new { @class = "addButton" })
+    }
+}

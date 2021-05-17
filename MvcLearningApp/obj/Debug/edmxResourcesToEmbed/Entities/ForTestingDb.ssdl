@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ForTestingDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ForTestingDbModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="ForTestingDbModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clients" EntityType="ForTestingDbModel.Store.Clients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="ForTestingDbModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Clients_Addresses" Association="ForTestingDbModel.Store.FK_Clients_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clients_Users" Association="ForTestingDbModel.Store.FK_Clients_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Street" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="Zip" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+    <Property Name="Avatar" Type="image" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Id_Address" Type="int" />
+    <Property Name="AvatarMimeType" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Enable" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Clients_Addresses">
+    <End Role="Addresses" Type="ForTestingDbModel.Store.Addresses" Multiplicity="0..1" />
+    <End Role="Clients" Type="ForTestingDbModel.Store.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="Id_Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clients_Users">
+    <End Role="Users" Type="ForTestingDbModel.Store.Users" Multiplicity="1" />
+    <End Role="Clients" Type="ForTestingDbModel.Store.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

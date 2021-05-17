@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ForTestingDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ForTestingDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="ForTestingDbModel.Address" />
+    <EntitySet Name="Clients" EntityType="ForTestingDbModel.Client" />
+    <EntitySet Name="Users" EntityType="ForTestingDbModel.User" />
+    <AssociationSet Name="FK_Clients_Addresses" Association="ForTestingDbModel.FK_Clients_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clients_Users" Association="ForTestingDbModel.FK_Clients_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Street" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Clients" Relationship="ForTestingDbModel.FK_Clients_Addresses" FromRole="Addresses" ToRole="Clients" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <Property Name="Avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Id_Address" Type="Int32" />
+    <Property Name="AvatarMimeType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Address" Relationship="ForTestingDbModel.FK_Clients_Addresses" FromRole="Clients" ToRole="Addresses" />
+    <NavigationProperty Name="User" Relationship="ForTestingDbModel.FK_Clients_Users" FromRole="Clients" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Enable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="ForTestingDbModel.FK_Clients_Users" FromRole="Users" ToRole="Clients" />
+  </EntityType>
+  <Association Name="FK_Clients_Addresses">
+    <End Role="Addresses" Type="ForTestingDbModel.Address" Multiplicity="0..1" />
+    <End Role="Clients" Type="ForTestingDbModel.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="Id_Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clients_Users">
+    <End Role="Users" Type="ForTestingDbModel.User" Multiplicity="1" />
+    <End Role="Clients" Type="ForTestingDbModel.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

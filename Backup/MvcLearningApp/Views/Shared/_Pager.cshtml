@@ -1,0 +1,41 @@
+﻿@model MvcLearningApp.Models.PagerView
+
+@if (Model.Records > 0)
+{
+    <ol class="pagination">
+            @if (Model.PagerPages > 1)
+            {
+                if (Model.CurrentPage != 1)
+                {
+                    <li style="display :inline-block;"><a class="btn-page_nav left" data-page="@(Model.CurrentPage - 1)" href="#">&#171;</a></li>
+                }
+                else
+                {
+                    <li style="display :inline-block;"><a class="btn-page_nav left">&#171;</a></li>
+                }
+
+                for (int i = 0; i < Model.PagerPages; i++)
+                {
+
+                    if (i + Model.StartPage == Model.CurrentPage)
+                    {
+                        <li style="display :inline-block;"><a class="btn-page active">@(i + Model.StartPage)</a></li>
+                    }
+                    else
+                    {
+                        <li style="display :inline-block;"><a class="btn-page" data-page="@(i + Model.StartPage)" href="?page=@(i + Model.StartPage)">@(i + Model.StartPage)</a></li>
+                    }
+                }
+
+                if (Model.CurrentPage != Model.Pages)
+                {
+                    <li style="display :inline-block;"><a class="btn-page_nav right" data-page="@(Model.CurrentPage + 1)" href="#">&#187;</a></li>
+                }
+                else
+                {
+                    <li style="display :inline-block;"><a class="btn-page_nav right">&#187;</a></li>
+                }
+                <li style="display :inline-block;"><label>Pagina @Model.CurrentPage din @Model.Pages . Total: @Model.Records</label></li>
+            }
+    </ol>
+}

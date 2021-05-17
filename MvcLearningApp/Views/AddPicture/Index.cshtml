@@ -1,0 +1,16 @@
+﻿@model MvcLearningApp.Models.ClientView
+
+@{
+    ViewBag.Title = "Add picture";
+}
+    <h3>Add image to user:</h3>
+    <br />
+
+    @using (Html.BeginForm("AddPictureToClient", "AddPicture", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.Id)
+	    <input id="file" type="file" name="file" />
+	    <input id="save_img" name="btnUpload" type="submit" value="Save Image"/>
+    }
+<br />
+@Html.ActionLink("<-- Back to Client manager", "Index", "ClientsManager")

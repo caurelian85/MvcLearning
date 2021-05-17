@@ -1,0 +1,31 @@
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\MvcLearningApp.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\MvcLearningApp.pdb
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\EntityFramework.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\Microsoft.Web.Optimization.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\System.Web.Helpers.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\System.Web.Mvc.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\System.Web.Providers.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\System.Web.Razor.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\System.Web.WebPages.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\bin\EntityFramework.xml
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\obj\Debug\MvcLearningApp.dll
+C:\Users\aurel\Documents\Visual Studio 2010\Projects\MvcLearningApp\MvcLearningApp\obj\Debug\MvcLearningApp.pdb
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\MvcLearningApp.dll
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\MvcLearningApp.pdb
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\EntityFramework.dll
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\EntityFramework.SqlServer.dll
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\System.Web.Mvc.dll
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\System.Web.WebPages.dll
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\System.Web.WebPages.Razor.dll
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\EntityFramework.xml
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\EntityFramework.SqlServer.xml
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\System.Web.Mvc.xml
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\System.Web.WebPages.xml
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\bin\System.Web.WebPages.Razor.xml
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\obj\Debug\MvcLearningApp.dll
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\obj\Debug\MvcLearningApp.pdb
+D:\work\aplicatii_Indaco\MvcLearningApp_27.02\MvcLearningApp\obj\Debug\MvcLearningApp.csprojResolveAssemblyReference.cache

@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title="Clients Management";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui-1.8.17.custom.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/Views/clientsManager-index.js")" type="text/javascript"></script>
+</head>
+<body>
+    <h2>
+        <br />
+        <a href="#" data-mode="on" id="btn-show-create">Create new client</a>
+    </h2>
+
+    @*reprezinta jquery-ui -ul ptr confirmarea delete-ului*@
+    <div id="dialog-confirm" title="Delete Client" style="display:none;">
+	    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 10px 30px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+
+    @*reprezinta jquery -ul ptr crearea de client *@
+    <div id="dialog-form-create" title="Create new Client" style="display:none;">
+    @using (Html.BeginForm("ClickCreateAsync", "ClientsManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <fieldset>
+            <p class="validateTips"> !!!Name & email fiels are required!!!</p>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all" />
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" value="" class="text ui-widget-content ui-corner-all" />
+            @*<label for ="avatar">Avatar</label>
+            <input type="file" id="avatar" name="avatar" size="23" />*@
+        </fieldset>
+    }
+    </div>
+
+    <div id="error-place">
+        <img style="display:none;" src="@Url.Content("~/Content/themes/base/images/ajax-loader.gif")"/>
+        <p style="display:none;"></p>
+        <p style="display:none;">Completeaza campurile libere!</p>
+    </div>
+
+    <div id="search-place">
+        <input style="float:left; width: 150px;" type="text" name="search_box"/>
+        <a id="search" href="#">cauta</a>
+    </div>
+
+    <div id="list-place">
+        <img id="preloader" src="@Url.Content("~/Content/themes/base/images/ajax-loader.gif")"/> 
+    </div>
+
+    @if (false)
+    {
+        <script src="../../Scripts/jquery-1.7.1-vsdoc.js" type="text/javascript"></script>
+    }
+
+    <script type="text/javascript">
+        //global object
+        window.AjaxUrls = {};
+        AjaxUrls.Url_GetListAsync = '@Url.Action("GetListAsync")';
+        AjaxUrls.Url_SaveClient = '@Url.Action("SaveClient")';
+        AjaxUrls.Url_CreateAsync = '@Url.Action("CreateAsync")';
+        AjaxUrls.Url_DeleteAsync = '@Url.Action("DeleteAsync")';
+    </script>
+</body>
+</html>

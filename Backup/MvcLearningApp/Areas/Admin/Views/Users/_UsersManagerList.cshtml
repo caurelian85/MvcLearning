@@ -1,0 +1,40 @@
+﻿@model MvcLearningApp.Models.GridViewModel<MvcLearningApp.Models.UserView>
+@{
+    ViewBag.Title = "Clients";
+}
+<div style="clear:both;">
+    <table id="usersTable">
+    <thead >
+        <tr bgcolor="#99ccff">
+            <td> User Name </td>
+            <td> Email </td>
+            <td> Enable</td>
+            <td> Options </td>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            var enabled = item.Enable ? "checked" : "";
+            <tr class="table_row">
+                <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td> <input type="checkbox" class="toggle-enable" @enabled /> </td>
+                <td data-id="@item.Id">
+                    @Html.ActionLink("Save", "Save", new { id = item.Id }, new { @class = "btn-save", disabled = "false" }) 
+                    @if (item.CanDelete)
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn-del" })
+                    }
+                </td>
+            </tr>       
+        }
+    </tbody>
+    </table>
+</div>
+
+<div>
+@Html.Partial("_Pager", Model.Pager)
+</div>
+
